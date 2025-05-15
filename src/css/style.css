@@ -35,3 +35,9 @@ header nav ul li a{
 header nav ul li a:hover{
     text-decoration: underline;
 }
+
+.banner img{
+    width: 90vh;
+    height: 60vh;
+}
+/* tem q arrumar isso depois */
