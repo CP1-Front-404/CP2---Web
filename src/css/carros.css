@@ -1,0 +1,38 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #fff;
+}
+header{
+    background:rgb(56, 56, 66);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 3px 2px 2px black;
+    padding: 20px;
+    flex-wrap: wrap;
+    text-transform: uppercase;
+}
+header nav ul{
+    list-style: none;
+    display: flex;
+    padding: 10px;
+}
+header nav ul li{
+    padding: 0px 20px;
+}
+header nav ul li a{
+    text-decoration: none;
+    color: beige;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+header nav ul li a:hover{
+    text-decoration: underline;
+}
