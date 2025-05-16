@@ -7,7 +7,7 @@
 html{
     font-size: 62.5%;
     scroll-behavior: smooth;
-    height: 5000px;
+    user-select: none;
 }
 
 body{
@@ -49,6 +49,7 @@ header nav ul li a{
 }
 header nav ul li a:hover{
     text-decoration: underline;
+    color: #00FFB2;
 }
 
 .banner img{
@@ -58,7 +59,7 @@ header nav ul li a:hover{
 /* tem q arrumar isso depois */
 
 .hero2{
-    width: 80% 0px;
+    width: 100% ;
     min-height: 100vh;
     background-image:url("../assets/carro5.jpg") ;
     background-repeat: no-repeat;
@@ -70,6 +71,7 @@ header nav ul li a:hover{
     color: white;
     text-align: center;
     padding-top: 30vh;
+   
 }
 
 #hero-texto{
@@ -79,6 +81,7 @@ header nav ul li a:hover{
     opacity: 0;
     animation: aparecer 1s ease forwards;
     animation-delay: 1s;
+   
 }
 #hero-paragrafo{
     opacity: 0;
@@ -97,5 +100,24 @@ header nav ul li a:hover{
     to{
         opacity: 1;
     }
+}
+
+.bloco{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 50px 0;
+}
+
+.conteudo-bloco{
+    width: 100px;
+    height: 100px;
+    border:2px solid black ;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
 }
 
