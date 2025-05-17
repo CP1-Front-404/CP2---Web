@@ -35,6 +35,57 @@ header nav ul li a{
 header nav ul li a:hover{
     text-decoration: underline;
 }
-main{
-    
+
+main {
+  width: 100%;
+  min-height: 80vh;
+  background: #1e1e2f;
+  padding: 40px;
+  color: white;
+}
+
+.container-sobre {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.container-sobre h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.container-sobre span:hover {
+  color: #00FFB2;
+  transition: 0.3s;
+}
+
+.conteudo-sobre h1 {
+  font-size: 28px;
+  padding: 30px 0 10px;
+  color: white;
+}
+
+.conteudo-sobre p {
+  color: beige;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.conteudo-sobre p:hover,h1:hover {
+  color: aqua;
+  transition: 0.3s;
+}
+
+footer {
+  background: rgb(56, 56, 66);
+  color: white;
+  text-align: center;
+  padding: 24px;
+}
+
+footer h2 {
+  text-transform: uppercase;
+  text-decoration: underline;
 }
