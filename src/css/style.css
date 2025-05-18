@@ -63,31 +63,35 @@ header nav ul li a:hover{
     border-bottom: 2px solid #bb0a30;
 }
 
-.banner img{
-    width: 80vw;
-    max-width: 780px;
-    height: auto;
-    border-radius: 14px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.11);
-    transition: opacity 0.7s;
-    object-fit: cover;
-}
-
-
 .hero2{
-    width: 100% ;
+    width: 100%;
     min-height: 100vh;
-    background-image:url("../assets/carro5.jpg") ;
+    background-image: url("../assets/carro1.jpg"); /*Primeira Imagem*/
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     color: white;
     text-align: center;
-    padding-top: 30vh;
-   
+    position: relative;
+    transition: background-image 0.7s;
+    overflow: hidden;
+}
+
+.hero2::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.8s;
+    pointer-events: none;
 }
 
 #hero-texto{
@@ -97,6 +101,8 @@ header nav ul li a:hover{
     opacity: 0;
     animation: aparecer 1s ease forwards;
     animation-delay: 1s;
+    position: relative;
+    z-index: 2;
    
 }
 #hero-paragrafo{
@@ -165,14 +171,6 @@ header nav ul li a:hover{
     font-size: 1.09rem;
 }
 
-.banner {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 400px;
-}
-
 .banner-btn {
     background: rgba(0,0,0,0.35);
     color: #fff;
@@ -181,15 +179,14 @@ header nav ul li a:hover{
     padding: 10px 18px;
     border-radius: 50%;
     cursor: pointer;
-    position: absolute;
+    position: absolute;         /* <-- ESSENCIAL */
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
     transition: background 0.2s;
 }
-
-#prevBtn { left: 12px; }
-#nextBtn { right: 12px; }
+#prevBtn { left: 40px; }
+#nextBtn { right: 40px; }
 .banner-btn:hover { background: rgba(0,0,0,0.6); }
 
 
@@ -202,3 +199,13 @@ footer {
     border-top: 1px solid #eee;
     margin-top: 60px;
 }
+
+.hero2.fade-bg::after {
+    background-image: var(--bg-next);
+    opacity: 1;
+}
+.hero2::after {
+    background-image: var(--bg-next);
+}
+
+

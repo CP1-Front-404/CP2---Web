@@ -5,53 +5,63 @@ const imagens = [
     'src/assets/carro4.jpg',
 ];
 
-let i = 0;
+let index = 0;
 const tempo = 5000;
 let intervalId = null;
+let fadeTimeout = null;
 
-function mostrarImagem(index) {
-    const imgElement = document.getElementById('image');
-    if (!imgElement) return;
+function fadeBackground(nextIndex) {
+    const hero = document.getElementById('hero2');
+    if (!hero) return;
 
-    imgElement.style.opacity = 0;
-    setTimeout(() => {
-        imgElement.src = imagens[index];
-        imgElement.onload = () => {
-            imgElement.style.opacity = 1; 
-        };
-    }, 400);
+    // Limpa o fade anterior, se ainda não terminou
+    if (fadeTimeout) clearTimeout(fadeTimeout);
+
+    // Aplica próxima imagem no ::after
+    hero.style.setProperty('--bg-next', `url('${imagens[nextIndex]}')`);
+    hero.classList.add('fade-bg');
+
+    // Só troca o background principal após o fade
+    fadeTimeout = setTimeout(() => {
+        hero.style.backgroundImage = `url('${imagens[nextIndex]}')`;
+        hero.classList.remove('fade-bg');
+        fadeTimeout = null;
+    }, 800); // igual ao tempo do transition
 }
 
-function proxImagem() {
-    i = (i + 1) % imagens.length;
-    mostrarImagem(i);
+function proxBG() {
+    let nextIndex = (index + 1) % imagens.length;
+    fadeBackground(nextIndex);
+    index = nextIndex;
 }
 
-function prevImagem() {
-    i = (i - 1 + imagens.length) % imagens.length;
-    mostrarImagem(i);
+function prevBG() {
+    let nextIndex = (index - 1 + imagens.length) % imagens.length;
+    fadeBackground(nextIndex);
+    index = nextIndex;
 }
 
 function startSlideshow() {
-    intervalId = setInterval(proxImagem, tempo);
+    intervalId = setInterval(proxBG, tempo);
 }
 
 function stopSlideshow() {
     if (intervalId) clearInterval(intervalId);
+    if (fadeTimeout) clearTimeout(fadeTimeout);
 }
 
 window.onload = function() {
-    mostrarImagem(i);
+    const hero = document.getElementById('hero2');
+    if (hero) hero.style.backgroundImage = `url('${imagens[index]}')`;
 
-    // Botões
     document.getElementById('nextBtn').onclick = function() {
         stopSlideshow();
-        proxImagem();
+        proxBG();
         startSlideshow();
     };
     document.getElementById('prevBtn').onclick = function() {
         stopSlideshow();
-        prevImagem();
+        prevBG();
         startSlideshow();
     };
 
