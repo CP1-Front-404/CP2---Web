@@ -1,47 +1,59 @@
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    user-select: none;
 }
 
 body {
-  background: #fff;
-  font-family: Arial, sans-serif;
-  color: #333;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: #fff;
 }
 
 header {
-  background: rgb(56, 56, 66);
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  box-shadow: 3px 2px 2px black;
-  padding: 20px;
-  flex-wrap: wrap;
-  text-transform: uppercase;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 12px 40px;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #222;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0;
 }
 
 header nav ul {
-  list-style: none;
-  display: flex;
-  padding: 10px;
-}
-
-header nav ul li {
-  padding: 0px 20px;
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    padding: 0;
+    margin: 0;
 }
 
 header nav ul li a {
-  text-decoration: none;
-  color: beige;
-  font-weight: 700;
-  font-size: 14px;
-  text-transform: uppercase;
+    text-decoration: none;
+    color: #222;
+    font-weight: 400;
+    font-size: 1.7rem;
+    transition: color 0.2s;
+    padding: 6px 0;
 }
-
 header nav ul li a:hover {
-  text-decoration: underline;
+    color: #00FFB2;
+    border-bottom: 2px solid #bb0a30;
 }
 
 #container-perguntas,
