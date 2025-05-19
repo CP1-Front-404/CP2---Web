@@ -11,16 +11,16 @@ document.addEventListener('DOMContentLoaded',()=>{
 
    
     const questoes=[
-        "1)qual seu modelo de carro favorito",
-        "2)Que características você mais valoriza em um carro?",
-        "3)Se você pudesse ter qualquer carro do mundo, qual escolheria?",
-        "4)Qual foi o melhor carro que você já dirigiu?",
-        "5)O que mais chamou sua atenção em nossa loja?",
-        "6)Que cor de carro você mais gosta e por quê?",
-        "7)Você prefere carros automáticos ou manuais?",
-        "8)O que é mais importante para você: desempenho, economia de combustível ou design?",
-        "9)Você se considera mais apaixonado por carros clássicos ou modernos?",
-        "10)Você daria prioridade a um carro elétrico hoje em dia? "
+        "1) Qual seu modelo de carro favorito",
+        "2) Que características você mais valoriza em um carro?",
+        "3) Se você pudesse ter qualquer carro do mundo, qual escolheria?",
+        "4) Qual foi o melhor carro que você já dirigiu?",
+        "5) O que mais chamou sua atenção em nossa loja?",
+        "6) Que cor de carro você mais gosta e por quê?",
+        "7) Você prefere carros automáticos ou manuais?",
+        "8) O que é mais importante para você: desempenho, economia de combustível ou design?",
+        "9) Você se considera mais apaixonado por carros clássicos ou modernos?",
+        "10) Você daria prioridade a um carro elétrico hoje em dia? "
         
 
     ]
