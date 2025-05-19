@@ -1,21 +1,22 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     font-size: 62.5%;
     scroll-behavior: smooth;
     user-select: none;
 }
 
-body{
+body {
     font-family: 'Montserrat', Arial, sans-serif;
     background: #fff;
 }
-header{
-    background: #ffff;
+
+header {
+    background: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,30 +28,23 @@ header{
     z-index: 1000;
 }
 
-header h1{
+header h1 {
     font-size: 2.5rem;
     color: #222;
     font-weight: 600;
     letter-spacing: 1px;
     margin: 0;
-
 }
-header nav ul{
+
+header nav ul {
     list-style: none;
     display: flex;
-    padding: 0;
     gap: 32px;
-    margin: 0;
-}
-header nav ul{
-    list-style: none;
-    display: flex;
-    gap: 28px;
     padding: 0;
     margin: 0;
 }
 
-header nav ul li a{
+header nav ul li a {
     text-decoration: none;
     color: #222;
     font-weight: 400;
@@ -58,83 +52,104 @@ header nav ul li a{
     transition: color 0.2s;
     padding: 6px 0;
 }
-header nav ul li a:hover{
+header nav ul li a:hover {
     color: #00FFB2;
     border-bottom: 2px solid #bb0a30;
 }
 
-.hero2{
+.hero2 {
+    position: relative;
     width: 100%;
     min-height: 100vh;
-    background-image: url("../assets/carro1.jpg"); /*Primeira Imagem*/
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background: #111;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
     text-align: center;
-    position: relative;
-    transition: background-image 0.7s;
     overflow: hidden;
 }
 
-.hero2::after {
-    content: '';
+.carousel-img {
     position: absolute;
-    inset: 0;
-    z-index: 1;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     opacity: 0;
-    transition: opacity 0.8s;
+    transition: opacity 0.8s cubic-bezier(.4,0,.2,1);
+    z-index: 1;
     pointer-events: none;
 }
+.carousel-img.active {
+    opacity: 1;
+    z-index: 1;
+    pointer-events: auto;
+}
 
-#hero-texto{
+#hero-texto {
+    position: relative;
+    z-index: 5;
     max-width: 800px;
-    line-height: 1.2;
-    font-size: 60px;
-    opacity: 0;
+    margin: 0 auto;
+    margin-top: 18vh;
+    margin-bottom: 6vh;
+    background: rgba(0,0,0,0.18); 
+    padding: 2.5rem 3.5rem 2.2rem 3.5rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
     animation: aparecer 1s ease forwards;
     animation-delay: 1s;
-    position: relative;
-    z-index: 2;
-   
 }
-#hero-paragrafo{
+
+
+@keyframes aparecer {
+    to { opacity: 1; }
+}
+
+#hero-paragrafo {
     opacity: 0;
     animation: aparecer 1s ease forwards;
     animation-delay: 2s;
     font-size: 40px;
-
 }
 
-#surpreendente{
+#surpreendente {
     color: #00FFB2;
 }
 
-
-@keyframes aparecer{
-    to{
-        opacity: 1;
-    }
+/* Botões do carrossel */
+.banner-btn {
+    background: rgba(0,0,0,0.35);
+    color: #fff;
+    border: none;
+    font-size: 2.5rem;
+    padding: 10px 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: background 0.2s;
+    user-select: none;
 }
+.banner-btn:hover { background: rgba(0,0,0,0.6); }
+#prevBtn { left: 40px; }
+#nextBtn { right: 40px; }
 
 .bloco {
     display: flex;
     justify-content: center;
-    gap: 48px; 
+    gap: 48px;
     padding: 60px 0;
-    background: #f6f8fa; 
-    flex-wrap: wrap; 
+    background: #f6f8fa;
+    flex-wrap: wrap;
 }
 
 .conteudo-bloco {
-    width: 340px; 
+    width: 340px;
     min-height: 140px;
     background: #fff;
     border-radius: 14px;
@@ -146,14 +161,14 @@ header nav ul li a:hover{
     padding: 32px 24px;
     font-size: 1.1rem;
     border: 2px solid #222;
-    border-left: 5px solid #00FFB2; 
+    border-left: 5px solid #00FFB2;
     transition: box-shadow 0.2s, transform 0.2s;
 }
 
 .conteudo-bloco:hover {
     box-shadow: 0 8px 32px rgba(0,0,0,0.14);
     transform: translateY(-5px) scale(1.03);
-    border-left: 5px solid #00ffd0; 
+    border-left: 5px solid #00ffd0;
 }
 
 .conteudo-bloco h2 {
@@ -171,25 +186,6 @@ header nav ul li a:hover{
     font-size: 1.09rem;
 }
 
-.banner-btn {
-    background: rgba(0,0,0,0.35);
-    color: #fff;
-    border: none;
-    font-size: 2.5rem;
-    padding: 10px 18px;
-    border-radius: 50%;
-    cursor: pointer;
-    position: absolute;         /* <-- ESSENCIAL */
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    transition: background 0.2s;
-}
-#prevBtn { left: 40px; }
-#nextBtn { right: 40px; }
-.banner-btn:hover { background: rgba(0,0,0,0.6); }
-
-
 footer {
     background: #fff;
     color: #888;
@@ -200,12 +196,66 @@ footer {
     margin-top: 60px;
 }
 
-.hero2.fade-bg::after {
-    background-image: var(--bg-next);
-    opacity: 1;
-}
-.hero2::after {
-    background-image: var(--bg-next);
-}
+@media (max-width: 700px) {
 
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 10px;
+        position: static;
+    }
 
+    header h1 {
+        font-size: 2rem;
+        margin-bottom: 4px;
+        text-align: left;
+    }
+
+    header nav ul {
+        gap: 14px;
+        font-size: 1.1rem;
+        flex-wrap: wrap;
+    }
+
+    .hero2 {
+        min-height: 68vh;
+    }
+
+    #hero-texto {
+        font-size: 1.6rem;
+        padding: 1rem 0.7rem 1rem 0.7rem;
+        margin: 0.5rem auto 0.5rem auto;
+        max-width: 98vw;
+        box-sizing: border-box;
+    }
+    #hero-texto h2 {
+        font-size: clamp(1.3rem, 7vw, 2.2rem);
+    }
+    #hero-paragrafo {
+        font-size: clamp(1rem, 4vw, 1.4rem);
+        word-break: break-word;
+        overflow-wrap: break-word;
+        text-align: center;
+    }
+
+    .banner-btn {
+        font-size: 1.7rem;
+        padding: 7px 12px;
+        position: absolute;
+        top: unset;
+        bottom: 24px;
+        width: 42px;
+        min-width: 38px;
+        max-width: 44px;
+        border-radius: 50%;
+        z-index: 10;
+    }
+    #prevBtn {
+        left: 10px;
+        right: unset;
+    }
+    #nextBtn {
+        right: 10px;
+        left: unset;
+    }
+}

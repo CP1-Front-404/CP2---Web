@@ -5,65 +5,39 @@ const imagens = [
     'src/assets/carro4.jpg',
 ];
 
-let index = 0;
-const tempo = 5000;
-let intervalId = null;
-let fadeTimeout = null;
 
-function fadeBackground(nextIndex) {
-    const hero = document.getElementById('hero2');
-    if (!hero) return;
+let carIndex = 0;
+let interval;
 
-    // Limpa o fade anterior, se ainda não terminou
-    if (fadeTimeout) clearTimeout(fadeTimeout);
-
-    // Aplica próxima imagem no ::after
-    hero.style.setProperty('--bg-next', `url('${imagens[nextIndex]}')`);
-    hero.classList.add('fade-bg');
-
-    // Só troca o background principal após o fade
-    fadeTimeout = setTimeout(() => {
-        hero.style.backgroundImage = `url('${imagens[nextIndex]}')`;
-        hero.classList.remove('fade-bg');
-        fadeTimeout = null;
-    }, 800); // igual ao tempo do transition
+function showImg(idx) {
+    const imgs = document.querySelectorAll('.carousel-img');
+    imgs.forEach((img, i) => {
+        img.classList.toggle('active', i === idx);
+    });
 }
 
-function proxBG() {
-    let nextIndex = (index + 1) % imagens.length;
-    fadeBackground(nextIndex);
-    index = nextIndex;
+function nextImg() {
+    carIndex = (carIndex + 1) % imagens.length;
+    showImg(carIndex);
 }
 
-function prevBG() {
-    let nextIndex = (index - 1 + imagens.length) % imagens.length;
-    fadeBackground(nextIndex);
-    index = nextIndex;
-}
-
-function startSlideshow() {
-    intervalId = setInterval(proxBG, tempo);
-}
-
-function stopSlideshow() {
-    if (intervalId) clearInterval(intervalId);
-    if (fadeTimeout) clearTimeout(fadeTimeout);
+function prevImg() {
+    carIndex = (carIndex - 1 + imagens.length) % imagens.length;
+    showImg(carIndex);
 }
 
 window.onload = function() {
-    const hero = document.getElementById('hero2');
-    if (hero) hero.style.backgroundImage = `url('${imagens[index]}')`;
+    showImg(carIndex);
+    interval = setInterval(nextImg, 5000);
 
     document.getElementById('nextBtn').onclick = function() {
-        stopSlideshow();
-        proxBG();
-        startSlideshow();
+        clearInterval(interval);
+        nextImg();
+        interval = setInterval(nextImg, 5000);
     };
     document.getElementById('prevBtn').onclick = function() {
-        stopSlideshow();
-        prevBG();
-        startSlideshow();
+        clearInterval(interval);
+        prevImg();
+        interval = setInterval(nextImg, 5000);
     };
-
-    startSlideshow();
 };
