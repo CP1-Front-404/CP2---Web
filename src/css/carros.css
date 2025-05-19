@@ -13,6 +13,9 @@ html {
 body {
     font-family: 'Montserrat', Arial, sans-serif;
     background: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -55,6 +58,10 @@ header nav ul li a:hover {
     color: #00FFB2;
     border-bottom: 2px solid #bb0a30;
 }
+
+main {
+  flex: 1;
+}
 .carros-galeria {
   display: flex;
   flex-wrap: wrap;
@@ -93,9 +100,6 @@ header nav ul li a:hover {
 
 .carro:hover {
   transform: translateY(-5px);
-}
-body{
-    background: #333;
 }
 .carros-galeria {
   display: flex;
